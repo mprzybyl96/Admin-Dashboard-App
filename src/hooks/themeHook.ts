@@ -5,7 +5,7 @@ import { themeSettings } from "../theme";
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export const useColorMode = () => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
 
   const colorMode = {
     toggleColorMode: () =>
