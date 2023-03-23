@@ -1,16 +1,4 @@
 import React, { useState } from "react";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import GroupIcon from "@mui/icons-material/Group";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import ReceiptIcon from "@mui/icons-material/Receipt";
@@ -22,28 +10,92 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import MapIcon from "@mui/icons-material/Map";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
-import {
-  Box,
-  Typography,
-  colors,
-  menuItemClasses,
-  useTheme,
-} from "@mui/material";
+import { IconButton } from "@mui/material";
+import { Box, Divider, Typography, colors, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import {
   Sidebar,
   Menu,
   MenuItem,
-  SubMenu,
-  sidebarClasses,
-  menuClasses,
   MenuItemStyles,
+  useProSidebar,
 } from "react-pro-sidebar";
+
+const Item = ({ title, icon }: { title: any; icon: any }) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+
+  return (
+    <MenuItem icon={icon} color={colors.greenAccent[200]}>
+      <Typography> {title} </Typography>
+    </MenuItem>
+  );
+};
+
+const SubMenuTitle = ({ title }: { title: any }) => {
+  const { collapsed } = useProSidebar();
+
+  return (
+    <Typography
+      sx={{
+        display: "flex",
+        m: "15px 20px 10px 18px",
+        justifyContent: !collapsed ? "flex-start" : "center",
+      }}
+      variant="h5"
+      color={colors.grey[500]}
+    >
+      {title}
+    </Typography>
+  );
+};
+
+const CustomDivider = () => {
+  return (
+    <Divider
+      variant="middle"
+      flexItem
+      sx={{
+        mt: "10px",
+      }}
+    />
+  );
+};
+
+const ProfileData = () => {
+  const { collapsed } = useProSidebar();
+
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyItems="center"
+      alignItems="center"
+      sx={{
+        m: "10px 0 0 0",
+      }}
+    >
+      <Box sx={{ mb: "15px" }}>
+        <img
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tommy-shelby-cillian-murphy-peaky-blinders-1569234705.jpg?crop=0.552xw:0.368xh;0.378xw,0.0295xh&resize=1200:*"
+          width={!collapsed ? "100px" : "50px"}
+          height={!collapsed ? "100px" : "50px"}
+          style={{ borderRadius: "50%" }}
+        />
+      </Box>
+      <Box sx={{ display: !collapsed ? "block" : "none", mb: "30px" }}>
+        <Typography variant="h3"> Thomas Shelby </Typography>
+      </Box>
+    </Box>
+  );
+};
 
 export const SidebarLayout = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const { collapseSidebar, collapsed } = useProSidebar();
 
   const menuItemStyles: MenuItemStyles = {
     root: {
@@ -65,29 +117,6 @@ export const SidebarLayout = () => {
     },
   };
 
-  const Item = ({ title, icon }: { title: any; icon: any }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-
-    return (
-      <MenuItem icon={icon} color={colors.greenAccent[200]}>
-        <Typography> {title} </Typography>
-      </MenuItem>
-    );
-  };
-
-  const SubMenuTitle = ({ title }: { title: any }) => {
-    return (
-      <Typography
-        sx={{ m: "15px 20px 5px 20px" }}
-        variant="h5"
-        color={colors.grey[300]}
-      >
-        {title}
-      </Typography>
-    );
-  };
-
   return (
     <Box
       sx={{
@@ -106,6 +135,9 @@ export const SidebarLayout = () => {
         className="sidebar-root"
         backgroundColor={`${colors.primary[400]}`}
       >
+        <ProfileData />
+        <CustomDivider />
+
         <Menu menuItemStyles={menuItemStyles}>
           <div className="submenu">
             <SubMenuTitle title="Data" />
@@ -129,6 +161,25 @@ export const SidebarLayout = () => {
             <Item title="Geography Chart" icon={<MapIcon />}></Item>
           </div>
         </Menu>
+        <CustomDivider />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            p: "10px",
+          }}
+        >
+          <IconButton
+            onClick={() => collapseSidebar()}
+            sx={{
+              transform: !collapsed ? "rotate(-90deg)" : "rotate(90deg)",
+              transition: "transform 150ms ease",
+            }}
+          >
+            <ExpandLessIcon />
+          </IconButton>
+        </Box>
       </Sidebar>
     </Box>
   );
