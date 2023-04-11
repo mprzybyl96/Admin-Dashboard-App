@@ -22,13 +22,26 @@ import {
   MenuItemStyles,
   useProSidebar,
 } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
 
-const Item = ({ title, icon }: { title: any; icon: any }) => {
+const Item = ({
+  title,
+  icon,
+  routerLink,
+}: {
+  title: any;
+  icon: any;
+  routerLink: any;
+}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   return (
-    <MenuItem icon={icon} color={colors.greenAccent[200]}>
+    <MenuItem
+      icon={icon}
+      component={<Link to={routerLink} />}
+      color={colors.greenAccent[200]}
+    >
       <Typography> {title} </Typography>
     </MenuItem>
   );
@@ -141,24 +154,64 @@ export const SidebarLayout = () => {
         <Menu menuItemStyles={menuItemStyles}>
           <div className="submenu">
             <SubMenuTitle title="Data" />
-            <Item title="Manage Team" icon={<GroupIcon />}></Item>
-            <Item title="Contacts Information" icon={<ContactsIcon />}></Item>
-            <Item title="Invoices Balances" icon={<ReceiptIcon />}></Item>
+            <Item
+              title="Manage Team"
+              routerLink={"/data/manage-team"}
+              icon={<GroupIcon />}
+            ></Item>
+            <Item
+              title="Contacts Information"
+              routerLink={"/data/manage-team"}
+              icon={<ContactsIcon />}
+            ></Item>
+            <Item
+              title="Invoices Balances"
+              routerLink={"/data/invoices-balances"}
+              icon={<ReceiptIcon />}
+            ></Item>
           </div>
 
           <div className="submenu">
             <SubMenuTitle title="Pages" />
-            <Item title="Profile Form" icon={<PersonIcon />}></Item>
-            <Item title="Calendar" icon={<CalendarMonthIcon />}></Item>
-            <Item title="FAQ Page" icon={<QuizIcon />}></Item>
+            <Item
+              title="Profile Form"
+              routerLink={"/pages/profile-form"}
+              icon={<PersonIcon />}
+            ></Item>
+            <Item
+              title="Calendar"
+              routerLink={"/pages/calendar"}
+              icon={<CalendarMonthIcon />}
+            ></Item>
+            <Item
+              title="FAQ Page"
+              routerLink={"/pages/faq"}
+              icon={<QuizIcon />}
+            ></Item>
           </div>
 
           <div className="submenu">
             <SubMenuTitle title="Charts" />
-            <Item title="Bar Chart" icon={<BarChartIcon />}></Item>
-            <Item title="Line Chart" icon={<ShowChartIcon />}></Item>
-            <Item title="Pie Chart" icon={<PieChartIcon />}></Item>
-            <Item title="Geography Chart" icon={<MapIcon />}></Item>
+            <Item
+              title="Bar Chart"
+              routerLink={"/charts/bar-chart"}
+              icon={<BarChartIcon />}
+            ></Item>
+            <Item
+              title="Line Chart"
+              routerLink={"/charts/line-chart"}
+              icon={<ShowChartIcon />}
+            ></Item>
+            <Item
+              title="Pie Chart"
+              routerLink={"/charts/pie-chart"}
+              icon={<PieChartIcon />}
+            ></Item>
+            <Item
+              title="Geography Chart"
+              routerLink={"/charts/geography-chart"}
+              icon={<MapIcon />}
+            ></Item>
           </div>
         </Menu>
         <CustomDivider />
