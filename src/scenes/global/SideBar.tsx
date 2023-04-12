@@ -11,6 +11,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import MapIcon from "@mui/icons-material/Map";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import HomeIcon from "@mui/icons-material/Home";
 
 import { IconButton } from "@mui/material";
 import { Box, Divider, Typography, colors, useTheme } from "@mui/material";
@@ -22,7 +23,7 @@ import {
   MenuItemStyles,
   useProSidebar,
 } from "react-pro-sidebar";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 const Item = ({
   title,
@@ -142,6 +143,9 @@ export const SidebarLayout = () => {
         "& .submenu": {
           pb: "10px",
         },
+        "& .main-submenu": {
+          pt: "10px",
+        },
       }}
     >
       <Sidebar
@@ -152,6 +156,13 @@ export const SidebarLayout = () => {
         <CustomDivider />
 
         <Menu menuItemStyles={menuItemStyles}>
+          <div className="main-submenu">
+            <Item
+              title="Dashboard"
+              routerLink={"/dashboard"}
+              icon={<HomeIcon />}
+            ></Item>
+          </div>
           <div className="submenu">
             <SubMenuTitle title="Data" />
             <Item
