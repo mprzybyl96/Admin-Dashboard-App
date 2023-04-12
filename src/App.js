@@ -5,7 +5,6 @@ import { ColorModeContext } from "./hooks/themeHook";
 import { useColorMode } from "./hooks/themeHook";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ProSidebarProvider } from "react-pro-sidebar";
-import { MainView } from "./scenes/global/MainView";
 import { ContactsInformationComponent } from "./components/DataComponents/ContactsInformationComponent";
 import { BarChartComponent } from "./components/ChartsComponents/BarChartComponent";
 import { GeographyChartComponent } from "./components/ChartsComponents/GeographyChartComponent";
@@ -33,53 +32,55 @@ export const App = () => {
               <SidebarLayout />
               <main className="content">
                 <TopBar />
-                <Routes>
-                  <Route
-                    path="/"
-                    element={<DashboardComponent />}
-                    errorElement={<NotFoundPageComponent />}
-                  ></Route>
-                  <Route
-                    path="/data/manage-team"
-                    element={<ManageTeamComponent />}
-                  ></Route>
-                  <Route
-                    path="/data/contacts-information"
-                    element={<ContactsInformationComponent />}
-                  ></Route>
-                  <Route
-                    path="/data/invoices-balances"
-                    element={<InvoicesBalancesComponent />}
-                  ></Route>
-                  <Route
-                    path="/pages/profile-form"
-                    element={<ProfileFormComponent />}
-                  ></Route>
-                  <Route
-                    path="/pages/calendar"
-                    element={<CalendarComponent />}
-                  ></Route>
-                  <Route
-                    path="/pages/faq"
-                    element={<FaqPageComponent />}
-                  ></Route>
-                  <Route
-                    path="/charts/bar-chart"
-                    element={<BarChartComponent />}
-                  ></Route>
-                  <Route
-                    path="/charts/line-chart"
-                    element={<LineChartComponent />}
-                  ></Route>
-                  <Route
-                    path="/charts/pie-chart"
-                    element={<PieChartComponent />}
-                  ></Route>
-                  <Route
-                    path="/charts/geography-chart"
-                    element={<GeographyChartComponent />}
-                  ></Route>
-                </Routes>
+                <div className="main-view">
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={<DashboardComponent />}
+                      errorElement={<NotFoundPageComponent />}
+                    ></Route>
+                    <Route
+                      path="/data/manage-team"
+                      element={<ManageTeamComponent />}
+                    ></Route>
+                    <Route
+                      path="/data/contacts-information"
+                      element={<ContactsInformationComponent />}
+                    ></Route>
+                    <Route
+                      path="/data/invoices-balances"
+                      element={<InvoicesBalancesComponent />}
+                    ></Route>
+                    <Route
+                      path="/pages/profile-form"
+                      element={<ProfileFormComponent />}
+                    ></Route>
+                    <Route
+                      path="/pages/calendar"
+                      element={<CalendarComponent />}
+                    ></Route>
+                    <Route
+                      path="/pages/faq"
+                      element={<FaqPageComponent />}
+                    ></Route>
+                    <Route
+                      path="/charts/bar-chart"
+                      element={<BarChartComponent />}
+                    ></Route>
+                    <Route
+                      path="/charts/line-chart"
+                      element={<LineChartComponent />}
+                    ></Route>
+                    <Route
+                      path="/charts/pie-chart"
+                      element={<PieChartComponent />}
+                    ></Route>
+                    <Route
+                      path="/charts/geography-chart"
+                      element={<GeographyChartComponent />}
+                    ></Route>
+                  </Routes>
+                </div>
               </main>
             </div>
           </BrowserRouter>

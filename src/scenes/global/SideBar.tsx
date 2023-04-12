@@ -23,7 +23,7 @@ import {
   MenuItemStyles,
   useProSidebar,
 } from "react-pro-sidebar";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Item = ({
   title,
