@@ -1,16 +1,41 @@
-import { Box } from "@mui/material";
+import { Box, Typography, colors } from "@mui/material";
 import React from "react";
 import { TitleComponent } from "../TitleComponent";
 import { DataGrid } from "@mui/x-data-grid";
 import { mockDataTeam } from "../../data/mockData";
+import { useTheme } from "@mui/material";
+import { tokens } from "../../theme";
+import { access } from "fs";
+
+const renderCellCustom = (row: any) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const { access } = row;
+  return (
+    <Box
+      width="60%"
+      m="0 auto"
+      p="5px"
+      display="flex"
+      justifyContent="center"
+      bgcolor={
+        access === "admin" ? colors.greenAccent[600] : colors.greenAccent[700]
+      }
+      borderRadius="4px"
+    >
+      <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+        {access}
+      </Typography>
+    </Box>
+  );
+};
 
 export const ManageTeamComponent = () => {
   const columns = [
     { field: "id", headerName: "ID" },
-    { field: "name", headerName: "Name", flex: 1 },
     {
-      field: "email",
-      headerName: "Email Address",
+      field: "name",
+      headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
@@ -19,15 +44,33 @@ export const ManageTeamComponent = () => {
       headerName: "Age",
     },
     { field: "phone", headerName: "Phone Number", flex: 1 },
-    { field: "access", headerName: "Access" },
+    {
+      field: "email",
+      headerName: "Email Address",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "access",
+      headerName: "Access",
+      flex: 1,
+      renderCell: (params: any) => renderCellCustom(params.row),
+    },
   ];
   return (
-    <Box>
+    <Box m="20px">
       <TitleComponent
         title={"Team"}
         subtitle={"Managing the team members"}
       ></TitleComponent>
-      <Box m="40px 0 0 0" height="75vh">
+      <Box
+        m="40px 0 0 0"
+        height="75vh"
+        sx={{
+          "& .MuiDataGrid-root": { border: "none" },
+          "& .MuiDataGrid-cell": {},
+        }}
+      >
         <DataGrid rows={mockDataTeam} columns={columns}></DataGrid>
       </Box>
     </Box>
