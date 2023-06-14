@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import InvoicesTable from "../../scenes/invoices";
 
 export const InvoicesBalancesComponent = () => {
-  return (
-    <div>InvoicesBalancesComponent</div>
-  )
-}
+  return <InvoicesTable />;
+};

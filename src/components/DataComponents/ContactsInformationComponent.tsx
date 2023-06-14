@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import ContactTable from "../../scenes/contacts";
 
 export const ContactsInformationComponent = () => {
-  return (
-    <div>ContactsInformationComponent</div>
-  )
-}
+  return <ContactTable />;
+};

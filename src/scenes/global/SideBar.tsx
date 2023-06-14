@@ -172,7 +172,7 @@ export const SidebarLayout = () => {
             ></Item>
             <Item
               title="Contacts Information"
-              routerLink={"/data/manage-team"}
+              routerLink={"/data/contacts-information"}
               icon={<ContactsIcon />}
             ></Item>
             <Item
