@@ -88,7 +88,7 @@ const ProfileData = () => {
       justifyItems="center"
       alignItems="center"
       sx={{
-        m: "10px 0 0 0",
+        m: "30px 0 0 0",
       }}
     >
       <Box sx={{ mb: "15px" }}>

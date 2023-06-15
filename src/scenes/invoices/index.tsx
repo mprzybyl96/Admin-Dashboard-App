@@ -1,47 +1,16 @@
-import { Box, Typography, colors } from "@mui/material";
+import { Box, Toolbar, Typography, colors, useTheme } from "@mui/material";
 import React from "react";
 import { TitleComponent } from "../../components/TitleComponent";
 import { DataGrid } from "@mui/x-data-grid";
-import { mockDataTeam } from "../../data/mockData";
-import { useTheme } from "@mui/material";
+import { mockDataInvoices } from "../../data/mockData";
 import { tokens } from "../../theme";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 
-const renderCellCustom = (row: any) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const { access } = row;
-
-  return (
-    <Box
-      width="60%"
-      m="0 auto"
-      p="5px"
-      display="flex"
-      justifyContent="center"
-      bgcolor={
-        access === "admin" ? colors.greenAccent[600] : colors.greenAccent[700]
-      }
-      borderRadius="4px"
-    >
-      {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-      {access === "user" && <SecurityOutlinedIcon />}
-      {access === "manager" && <LockOpenOutlinedIcon />}
-      <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-        {access}
-      </Typography>
-    </Box>
-  );
-};
-
-export const ManageInvoicesComponent = () => {
+const ManageInvoicesComponent = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", headerName: "ID", flex: 0.5 },
     {
       field: "name",
       headerName: "Name",
@@ -49,29 +18,27 @@ export const ManageInvoicesComponent = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "age",
-      headerName: "Age",
-    },
-    { field: "phone", headerName: "Phone Number", flex: 1 },
-    {
       field: "email",
       headerName: "Email Address",
       flex: 1,
       cellClassName: "name-column--cell",
     },
+    { field: "phone", headerName: "Phone Number", flex: 1 },
+    { field: "date", headerName: "Date", flex: 1 },
     {
-      field: "access",
-      headerName: "Access",
+      field: "cost",
+      headerName: "Cost",
       flex: 1,
-      renderCell: (params: any) => renderCellCustom(params.row),
+      renderCell: (params: any) => (
+        <Typography color={colors.greenAccent[500]}>
+          ${params.row.cost}
+        </Typography>
+      ),
     },
   ];
   return (
     <Box m="20px">
-      <TitleComponent
-        title={"Team"}
-        subtitle={"Managing the team members"}
-      ></TitleComponent>
+      <TitleComponent title={"Invoices"} subtitle={"Invoices"}></TitleComponent>
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -90,9 +57,16 @@ export const ManageInvoicesComponent = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[200]} !important`,
+          },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns}></DataGrid>
+        <DataGrid
+          checkboxSelection
+          rows={mockDataInvoices}
+          columns={columns}
+        ></DataGrid>
       </Box>
     </Box>
   );

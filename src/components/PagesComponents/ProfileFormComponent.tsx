@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import Form from "../../scenes/form";
 
 export const ProfileFormComponent = () => {
-  return (
-    <div>ProfileFormComponent</div>
-  )
-}
+  return <Form />;
+};
