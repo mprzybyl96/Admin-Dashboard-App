@@ -1,4 +1,4 @@
-import { Box, TextField, useMediaQuery } from "@mui/material";
+import { Box, Button, TextField, useMediaQuery } from "@mui/material";
 import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -18,10 +18,12 @@ const initialValues = {
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
-  const handleFormSumbmit = (values: any) => {};
+  const handleFormSumbmit = (values: any) => {
+    console.log("values = ", values);
+  };
 
   return (
-    <Box m="20px">
+    <Box m="40px">
       <TitleComponent
         title={"Create user"}
         subtitle={"create new user profile"}
@@ -56,6 +58,7 @@ const Form = () => {
                 errors={errors.firstName}
                 handleBlur={handleBlur}
                 handleChange={handleChange}
+                span={2}
               />
               <CustomTextField
                 label="last name"
@@ -65,6 +68,7 @@ const Form = () => {
                 errors={errors.lastName}
                 handleBlur={handleBlur}
                 handleChange={handleChange}
+                span={2}
               />
               <CustomTextField
                 label="email"
@@ -84,6 +88,29 @@ const Form = () => {
                 handleBlur={handleBlur}
                 handleChange={handleChange}
               />
+              <CustomTextField
+                label="address 1"
+                name="address1"
+                values={values.address1}
+                touched={touched.address1}
+                errors={errors.address1}
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+              />
+              <CustomTextField
+                label="address 2"
+                name="address2"
+                values={values.address2}
+                touched={touched.address2}
+                errors={errors.address2}
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+              />
+            </Box>
+            <Box display="flex" justifyContent="end" mt="20px">
+              <Button type="submit" color="secondary" variant="contained">
+                Create New User
+              </Button>
             </Box>
           </form>
         )}

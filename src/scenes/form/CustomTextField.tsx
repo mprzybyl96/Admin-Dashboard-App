@@ -7,6 +7,7 @@ interface CustomTextFieldProps {
   values: any;
   touched: any;
   errors: any;
+  span?: number;
   handleBlur: (args: any) => void;
   handleChange: (args: any) => void;
 }
@@ -19,6 +20,7 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
   errors,
   handleBlur,
   handleChange,
+  span = 4,
 }) => {
   return (
     <TextField
@@ -32,7 +34,7 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
       name={name}
       error={!!touched && !!errors}
       helperText={touched && errors}
-      sx={{ gridColumn: "span 2" }}
+      sx={{ gridColumn: `span ${span}` }}
     />
   );
 };
