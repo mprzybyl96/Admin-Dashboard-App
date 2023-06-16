@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import Calendar from "../../scenes/calendar";
 
 export const CalendarComponent = () => {
-  return (
-    <div>CalendarComponent</div>
-  )
-}
+  return <Calendar />;
+};
