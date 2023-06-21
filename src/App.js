@@ -6,7 +6,6 @@ import { useColorMode } from "./hooks/themeHook";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { ContactsInformationComponent } from "./components/DataComponents/ContactsInformationComponent";
-import { BarChartComponent } from "./components/ChartsComponents/BarChartComponent";
 import { GeographyChartComponent } from "./components/ChartsComponents/GeographyChartComponent";
 import { LineChartComponent } from "./components/ChartsComponents/LineChartComponent";
 import { PieChartComponent } from "./components/ChartsComponents/PieChartComponent";
@@ -18,6 +17,7 @@ import { FaqPageComponent } from "./components/PagesComponents/FaqPageComponent"
 import { ProfileFormComponent } from "./components/PagesComponents/ProfileFormComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DashboardComponent } from "./components/DashboardComponent";
+import BarChartComponent from "./components/ChartsComponents/BarChartComponent";
 
 export const App = () => {
   const [theme, colorMode] = useColorMode();

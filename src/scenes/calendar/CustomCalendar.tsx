@@ -51,7 +51,7 @@ const CustomCalendar: React.FC<Props> = ({ events, setCurrentEvents }) => {
         initialView="dayGridMonth"
         select={handleDateClick}
         eventClick={handleEventClick}
-        eventsSet={(events) => setCurrentEvents(events)}
+        eventsSet={(events: any) => setCurrentEvents(events)}
         initialEvents={events}
       />
     </Box>

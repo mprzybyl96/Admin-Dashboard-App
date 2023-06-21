@@ -9,7 +9,7 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 
-const renderCellCustom = (row: any) => {
+const RenderCellCustom = (row: any) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const { access } = row;
@@ -63,7 +63,7 @@ const ManageTeamComponent = () => {
       field: "access",
       headerName: "Access",
       flex: 1,
-      renderCell: (params: any) => renderCellCustom(params.row),
+      renderCell: (params: any) => RenderCellCustom(params.row),
     },
   ];
   return (

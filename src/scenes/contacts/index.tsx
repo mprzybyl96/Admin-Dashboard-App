@@ -6,30 +6,6 @@ import { mockDataContacts } from "../../data/mockData";
 import { useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 
-const renderCellCustom = (row: any) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const { access } = row;
-
-  return (
-    <Box
-      width="60%"
-      m="0 auto"
-      p="5px"
-      display="flex"
-      justifyContent="center"
-      bgcolor={
-        access === "admin" ? colors.greenAccent[600] : colors.greenAccent[700]
-      }
-      borderRadius="4px"
-    >
-      <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-        {access}
-      </Typography>
-    </Box>
-  );
-};
-
 const ManageContactsComponent = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
