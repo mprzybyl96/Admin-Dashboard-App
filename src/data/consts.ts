@@ -57,6 +57,6 @@ export const componentsConsts: SceneConsts[] = [
   {
     name: "geo",
     title: "geo chart",
-    subtitle: "",
+    subtitle: "Simple Geographic chart",
   },
 ];
