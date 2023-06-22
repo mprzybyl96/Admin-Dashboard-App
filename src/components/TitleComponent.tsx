@@ -1,21 +1,17 @@
-import { Box, Typography, colors, useTheme } from "@mui/material";
-import React from "react";
+import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../theme";
+import useGetConsts from "../hooks/constsHook";
 
-export const TitleComponent = ({
-  title,
-  subtitle,
-}: {
-  title: any;
-  subtitle: any;
-}) => {
+export const TitleComponent = ({ name }: { name: string }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const { title, subtitle } = useGetConsts(name);
+
   return (
     <div>
       <Box>
         <Typography variant="h2" color={colors.grey[100]}>
-          {title}
+          {title?.toUpperCase()}
         </Typography>
         <Typography
           sx={{ mt: "10px", mb: "10px" }}

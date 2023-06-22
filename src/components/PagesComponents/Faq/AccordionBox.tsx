@@ -7,13 +7,10 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
-import { tokens } from "../../theme";
+import { tokens } from "../../../theme";
+import { AccordionProps } from "../../../components.types";
 
-interface Props {
-  title: string;
-}
-
-const AccordionBox: React.FC<Props> = ({ title }) => {
+const AccordionBox: React.FC<AccordionProps> = ({ title }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 

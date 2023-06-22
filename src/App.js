@@ -1,23 +1,27 @@
-import React from "react";
 import TopBar from "./scenes/global/TopBar";
 import SidebarLayout from "./scenes/global/Sidebar";
+
+import { DashboardComponent } from "./components/DashboardComponent";
+
+import ManageTeam from "./scenes/team";
+import Contacts from "./scenes/contacts";
+import Invoices from "./scenes/invoices";
+
+import ProfileForm from "./scenes/form";
+import Calendar from "./scenes/calendar";
+import FAQ from "./scenes/faq";
+
+import BarChart from "./scenes/barChart";
+import LineChart from "./scenes/lineChart";
+import PieChart from "./scenes/pieChart";
+import GeoChart from "./scenes/geoChart";
+
 import { ColorModeContext } from "./hooks/themeHook";
 import { useColorMode } from "./hooks/themeHook";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ProSidebarProvider } from "react-pro-sidebar";
-import { ContactsInformationComponent } from "./components/DataComponents/ContactsInformationComponent";
-import { GeographyChartComponent } from "./components/ChartsComponents/GeographyChartComponent";
-import { LineChartComponent } from "./components/ChartsComponents/LineChartComponent";
-import { PieChartComponent } from "./components/ChartsComponents/PieChartComponent";
-import { InvoicesBalancesComponent } from "./components/DataComponents/InvoicesBalancesComponent";
-import { ManageTeamComponent } from "./components/DataComponents/ManageTeamComponent";
 import { NotFoundPageComponent } from "./components/NotFoundPageComponent";
-import { CalendarComponent } from "./components/PagesComponents/CalendarComponent";
-import { FaqPageComponent } from "./components/PagesComponents/FaqPageComponent";
-import { ProfileFormComponent } from "./components/PagesComponents/ProfileFormComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { DashboardComponent } from "./components/DashboardComponent";
-import BarChartComponent from "./components/ChartsComponents/BarChartComponent";
 
 export const App = () => {
   const [theme, colorMode] = useColorMode();
@@ -41,43 +45,42 @@ export const App = () => {
                     ></Route>
                     <Route
                       path="/data/manage-team"
-                      element={<ManageTeamComponent />}
+                      element={<ManageTeam />}
                     ></Route>
                     <Route
                       path="/data/contacts-information"
-                      element={<ContactsInformationComponent />}
+                      element={<Contacts />}
                     ></Route>
                     <Route
                       path="/data/invoices-balances"
-                      element={<InvoicesBalancesComponent />}
+                      element={<Invoices />}
                     ></Route>
+
                     <Route
                       path="/pages/profile-form"
-                      element={<ProfileFormComponent />}
+                      element={<ProfileForm />}
                     ></Route>
                     <Route
                       path="/pages/calendar"
-                      element={<CalendarComponent />}
+                      element={<Calendar />}
                     ></Route>
-                    <Route
-                      path="/pages/faq"
-                      element={<FaqPageComponent />}
-                    ></Route>
+                    <Route path="/pages/faq" element={<FAQ />}></Route>
+
                     <Route
                       path="/charts/bar-chart"
-                      element={<BarChartComponent />}
+                      element={<BarChart />}
                     ></Route>
                     <Route
                       path="/charts/line-chart"
-                      element={<LineChartComponent />}
+                      element={<LineChart />}
                     ></Route>
                     <Route
                       path="/charts/pie-chart"
-                      element={<PieChartComponent />}
+                      element={<PieChart />}
                     ></Route>
                     <Route
                       path="/charts/geography-chart"
-                      element={<GeographyChartComponent />}
+                      element={<GeoChart />}
                     ></Route>
                   </Routes>
                 </div>

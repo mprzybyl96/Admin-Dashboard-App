@@ -1,13 +1,6 @@
 import React from "react";
 import CustomTextField from "./CustomTextField";
-
-interface TextFieldsProps {
-  values: any;
-  touched: any;
-  errors: any;
-  handleBlur: (args: any) => void;
-  handleChange: (args: any) => void;
-}
+import { TextFieldsProps } from "../../../components.types";
 
 const TextFields: React.FC<TextFieldsProps> = ({
   values,

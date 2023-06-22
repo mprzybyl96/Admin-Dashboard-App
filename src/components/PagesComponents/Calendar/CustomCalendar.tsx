@@ -5,6 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
+import { CalendarProps } from "../../../components.types";
 
 const handleDateClick = (selected: any) => {
   const title = prompt("Please enter a new title for your event");
@@ -28,12 +29,10 @@ const handleEventClick = (selected: any) => {
   }
 };
 
-interface Props {
-  events: [];
-  setCurrentEvents: (events: any) => void;
-}
-
-const CustomCalendar: React.FC<Props> = ({ events, setCurrentEvents }) => {
+const CustomCalendar: React.FC<CalendarProps> = ({
+  events,
+  setCurrentEvents,
+}) => {
   return (
     <Box flex="1 1 100%" ml="15px">
       <FullCalendar

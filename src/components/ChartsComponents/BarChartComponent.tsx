@@ -1,12 +1,15 @@
 import { mockBarData } from "../../data/mockData";
-import { tokens } from "../../theme";
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
+import { UseGetChartTheme } from "./hooks/chartColorTheme";
 
-const BarChart = () => {
+const BarChartComponent = () => {
+  const { chartTheme } = UseGetChartTheme();
+
   return (
     <Box height="75vh">
       <ResponsiveBar
+        theme={chartTheme}
         data={mockBarData}
         keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
         indexBy="country"
@@ -20,7 +23,6 @@ const BarChart = () => {
             id: "dots",
             type: "patternDots",
             background: "inherit",
-            color: "#38bcb2",
             size: 4,
             padding: 1,
             stagger: true,
@@ -106,9 +108,10 @@ const BarChart = () => {
         barAriaLabel={(e: any) =>
           e.id + ": " + e.formattedValue + " in country: " + e.indexValue
         }
+        enableLabel={false}
       />
     </Box>
   );
 };
 
-export default BarChart;
+export default BarChartComponent;
