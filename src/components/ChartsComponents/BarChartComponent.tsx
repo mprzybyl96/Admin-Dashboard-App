@@ -3,7 +3,11 @@ import { Box } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
 import { UseGetChartTheme } from "./hooks/chartColorTheme";
 
-const BarChartComponent = () => {
+const BarChartComponent = ({
+  isDashboard = false,
+}: {
+  isDashboard?: boolean;
+}) => {
   const { chartTheme } = UseGetChartTheme();
 
   return (
@@ -13,7 +17,7 @@ const BarChartComponent = () => {
         data={mockBarData}
         keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
         indexBy="country"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 30, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}
@@ -61,7 +65,7 @@ const BarChartComponent = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "country",
+          legend: isDashboard ? undefined : "country",
           legendPosition: "middle",
           legendOffset: 32,
         }}
@@ -69,7 +73,7 @@ const BarChartComponent = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "food",
+          legend: isDashboard ? undefined : "food",
           legendPosition: "middle",
           legendOffset: -40,
         }}

@@ -5,6 +5,7 @@ import BarChartComponent from "../../components/ChartsComponents/BarChartCompone
 const BarChart = () => {
   return (
     <>
+      <TitleComponent name="bar" />
       <BarChartComponent />
     </>
   );

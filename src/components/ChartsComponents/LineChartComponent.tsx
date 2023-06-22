@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { UseGetChartTheme } from "./hooks/chartColorTheme";
 
-const LineChartComponent = () => {
+const LineChartComponent = ({ isDashboard = false }) => {
   const { chartTheme } = UseGetChartTheme();
 
   return (
@@ -27,15 +27,16 @@ const LineChartComponent = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "transportation",
+          legend: isDashboard ? undefined : "transportation",
           legendOffset: 36,
           legendPosition: "middle",
         }}
         axisLeft={{
           tickSize: 5,
+          tickValues: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "count",
+          legend: isDashboard ? undefined : "count",
           legendOffset: -40,
           legendPosition: "middle",
         }}
@@ -45,6 +46,10 @@ const LineChartComponent = () => {
         pointBorderColor={{ from: "serieColor" }}
         pointLabelYOffset={-12}
         useMesh={true}
+        curve="catmullRom"
+        enableGridX={false}
+        enableGridY={false}
+        colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
         legends={[
           {
             anchor: "bottom-right",

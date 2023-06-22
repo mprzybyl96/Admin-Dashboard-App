@@ -4,6 +4,7 @@ import { TitleComponent } from "../../components/TitleComponent";
 const ManageTeam = () => {
   return (
     <>
+      <TitleComponent name="team" />
       <ManageTeamComponent />
     </>
   );

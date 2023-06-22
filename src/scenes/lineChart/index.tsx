@@ -1,10 +1,10 @@
-import React from "react";
 import LineChartComponent from "../../components/ChartsComponents/LineChartComponent";
 import { TitleComponent } from "../../components/TitleComponent";
 
 const LineChart = () => {
   return (
     <>
+      <TitleComponent name="line" />
       <LineChartComponent />
     </>
   );

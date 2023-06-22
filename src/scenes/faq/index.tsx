@@ -4,9 +4,10 @@ import FaqComponent from "../../components/PagesComponents/Faq/FaqComponent";
 
 const FAQ = () => {
   return (
-    <div>
+    <>
+      <TitleComponent name="faq" />
       <FaqComponent />
-    </div>
+    </>
   );
 };
 

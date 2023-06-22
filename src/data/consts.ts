@@ -10,49 +10,49 @@ export const componentsConsts: SceneConsts[] = [
   {
     name: "team",
     title: "team info",
-    subtitle: "",
+    subtitle: "this page shows information about all team members",
   },
   {
     name: "contacts",
     title: "contacts page",
-    subtitle: "",
+    subtitle: "this page shows members contact information",
   },
   {
     name: "invoices",
     title: "invoices page",
-    subtitle: "",
+    subtitle: "this page shows all invoices data of members",
   },
   //   PAGES
   {
     name: "profile",
     title: "profile form page",
-    subtitle: "",
+    subtitle: "add new user form",
   },
   {
     name: "calendar",
     title: "calendar page",
-    subtitle: "",
+    subtitle: "calendar with saved events",
   },
   {
     name: "faq",
     title: "faq page",
-    subtitle: "",
+    subtitle: "page with most frequently asked questions",
   },
   //   CHARTS
   {
     name: "bar",
     title: "bar chart",
-    subtitle: "",
+    subtitle: "That's a bar chart containing some food stats",
   },
   {
     name: "line",
     title: "line chart",
-    subtitle: "",
+    subtitle: "That's a line chart containing some Countries stats",
   },
   {
     name: "pie",
     title: "pie chart",
-    subtitle: "That's a bar chart containing some programming languages stats",
+    subtitle: "That's a pie chart containing some programming languages stats",
   },
   {
     name: "geo",

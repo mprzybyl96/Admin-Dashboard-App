@@ -20,7 +20,7 @@ const ProfileFormComponent = () => {
   };
 
   return (
-    <Box m="40px">
+    <Box m="20px" mt="40px">
       <Formik
         onSubmit={handleFormSumbmit}
         initialValues={initialValues}

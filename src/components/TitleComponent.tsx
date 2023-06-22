@@ -9,7 +9,7 @@ export const TitleComponent = ({ name }: { name: string }) => {
 
   return (
     <div>
-      <Box>
+      <Box m="20px" mb="40px">
         <Typography variant="h2" color={colors.grey[100]}>
           {title?.toUpperCase()}
         </Typography>

@@ -1,10 +1,13 @@
-import { Box } from "@mui/material";
+import { Box, useColorScheme, useTheme } from "@mui/material";
 import { ResponsivePie } from "@nivo/pie";
 import { mockPieData } from "../../data/mockData";
 import { UseGetChartTheme } from "./hooks/chartColorTheme";
+import { tokens } from "../../theme";
 
 export const PieChartComponent = () => {
   const { chartTheme } = UseGetChartTheme();
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   return (
     <Box height="75vh">
@@ -22,7 +25,7 @@ export const PieChartComponent = () => {
           modifiers: [["darker", 0.2]],
         }}
         arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
+        arcLinkLabelsTextColor={colors.grey[100]}
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={10}
@@ -48,56 +51,6 @@ export const PieChartComponent = () => {
             rotation: -45,
             lineWidth: 6,
             spacing: 10,
-          },
-        ]}
-        fill={[
-          {
-            match: {
-              id: "ruby",
-            },
-            id: "dots",
-          },
-          {
-            match: {
-              id: "c",
-            },
-            id: "dots",
-          },
-          {
-            match: {
-              id: "go",
-            },
-            id: "dots",
-          },
-          {
-            match: {
-              id: "python",
-            },
-            id: "dots",
-          },
-          {
-            match: {
-              id: "scala",
-            },
-            id: "lines",
-          },
-          {
-            match: {
-              id: "lisp",
-            },
-            id: "lines",
-          },
-          {
-            match: {
-              id: "elixir",
-            },
-            id: "lines",
-          },
-          {
-            match: {
-              id: "javascript",
-            },
-            id: "lines",
           },
         ]}
         legends={[
