@@ -20,3 +20,11 @@ export interface SceneConsts {
   title: string;
   subtitle: string;
 }
+
+export interface StatBoxProps {
+  title: string;
+  subtitle: string;
+  icon: any;
+  progress: number;
+  increase: string;
+}

@@ -1,8 +1,7 @@
 import TopBar from "./scenes/global/TopBar";
 import SidebarLayout from "./scenes/global/Sidebar";
 
-import { DashboardComponent } from "./components/DashboardComponent";
-
+import Dashboard from "./scenes/dashboard";
 import ManageTeam from "./scenes/team";
 import Contacts from "./scenes/contacts";
 import Invoices from "./scenes/invoices";
@@ -40,7 +39,7 @@ export const App = () => {
                   <Routes>
                     <Route
                       path="/"
-                      element={<DashboardComponent />}
+                      element={<Dashboard />}
                       errorElement={<NotFoundPageComponent />}
                     ></Route>
                     <Route

@@ -4,7 +4,7 @@ export const componentsConsts: SceneConsts[] = [
   {
     name: "dashboard",
     title: "dashboard",
-    subtitle: "",
+    subtitle: "Dasboard that shows minified data from all scenes at one page",
   },
   // DATA
   {
